@@ -3,24 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from './Product';
 import { BACKEND_URL } from '../Constants/Backend';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ProductDataSourceService {
-  private dataSource: Product[];
+  private dataSource: Observable<Product[]>;
 
   constructor(private http: HttpClient) {
-    http.get(`${BACKEND_URL}/products`)
-      // .pipe(
-      //   map(res => res)
-      // )
-      .subscribe(data => {
-        console.log(data);
-        // @ts-ignore
-        this.dataSource = data;
-      });
   }
 
-  public get getDataSource(): Product[] {
-    return this.dataSource;
+  public get getData(): Observable<Object> {
+    return this.http.get(`${BACKEND_URL}/products`)
+      .pipe(
+        map(res => res)
+      );
   }
 }
