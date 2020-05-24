@@ -21,6 +21,10 @@ function getProducts() {
     return products;
 }
 app.get('/', function (req, res) { return res.send('Goto /products'); });
-app.get('/products', function (req, res) { return res.json(getProducts()); });
-var server = app.listen(8080, 'localhost');
+app.get('/products', function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
+    res.json(getProducts());
+});
+var server = app.listen(8080, '127.0.0.1');
 //# sourceMappingURL=products-server.js.map

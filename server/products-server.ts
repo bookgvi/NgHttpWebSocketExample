@@ -23,6 +23,10 @@ function getProducts(): Product[] {
 }
 
 app.get('/', (req, res) => res.send('Goto /products'));
-app.get('/products', (req, res) => res.json(getProducts()));
+app.get('/products', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
+  res.json(getProducts())
+});
 
-const server = app.listen(8080, 'localhost');
+const server = app.listen(8080, '127.0.0.1');
