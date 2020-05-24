@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc -w",
-    "dev": "nodemon build/my-express-server.js",
+    "dev": "nodemon build/products-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
