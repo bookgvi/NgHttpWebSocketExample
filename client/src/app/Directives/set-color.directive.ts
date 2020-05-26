@@ -8,6 +8,6 @@ export class SetColorDirective {
   bgColor: string = '';
 
   public setColor(isSet: boolean): void {
-    this.bgColor = isSet ? 'dark' : ''
+    this.bgColor = isSet ? 'dark' : 'light'
   }
 }

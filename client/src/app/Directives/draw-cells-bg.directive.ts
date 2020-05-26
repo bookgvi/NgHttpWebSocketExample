@@ -29,7 +29,13 @@ export class DrawCellsBgDirective implements AfterContentInit {
     setTimeout(() => {
       if (this.cells) {
         this.cells.forEach((el: SetColorDirective, index: number) => {
-          !(index % 2) ? el.setColor(true) : '';
+          let predicate = true;
+          setTimeout(function cb() {
+            if (predicate) !(index % 2) ? el.setColor(true) : el.setColor(false);
+            else index % 2 ? el.setColor(true) : el.setColor(false);
+            predicate = !predicate
+            setTimeout(cb, 500)
+          }, 0)
         })
       }
     }, 0);
