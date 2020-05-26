@@ -6,9 +6,14 @@ import { ProductModelModule } from './Modules/product-model.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { DrawCellsBgDirective } from './Directives/draw-cells-bg.directive';
+import { SetColorDirective } from './Directives/set-color.directive';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DrawCellsBgDirective,
+    SetColorDirective
   ],
   imports: [
     BrowserModule,

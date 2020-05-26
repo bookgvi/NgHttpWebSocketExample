@@ -14,9 +14,7 @@ export class ProductDataSourceService {
   public get getData(): Observable<HttpResponse<Product[]>> {
     return this.http.get<Product[]>(`${BACKEND_URL}/products`, { observe: 'response' })
       .pipe(
-        tap(res => {
-          return { ...res.body };
-        })
+        delay(500)
       )
   }
 }
